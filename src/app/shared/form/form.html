@@ -1,1 +1,32 @@
-<p>form works!</p>
+<div class="mb-3">
+  <label class="form-label">NAME:</label>
+  <input type="text" class="form-control" [(ngModel)]="person.name" name="name">
+
+  <label class="form-label">PHONE NO:</label>
+  <input type="number" class="form-control" [(ngModel)]="person.phone" name="phone">
+
+  <label class="form-label">EMAIL:</label>
+  <input type="email" class="form-control" [(ngModel)]="person.email" name="email">
+
+  <label class="form-label">ADDRESS:</label>
+  <input type="text" class="form-control" [(ngModel)]="person.address" name="address">
+
+  <label class="form-label">GENDER:</label><br>
+  <input class="form-check-input" type="radio" [(ngModel)]="person.gender" name="gender" value="Male"> Male
+  <input class="form-check-input" type="radio" [(ngModel)]="person.gender" name="gender" value="Female"> Female
+
+  <br><br>
+
+  @if (!editData) {
+  <button type="button" class="btn btn-primary" (click)="addData()">
+    ADD
+  </button>
+  }
+
+  @if (editData) {
+  <button type="button" class="btn btn-primary" (click)="addData()">
+    UPDATE
+  </button>
+  }
+
+</div>

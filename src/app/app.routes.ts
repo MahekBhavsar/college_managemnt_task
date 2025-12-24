@@ -2,6 +2,17 @@ import { Routes } from '@angular/router';
 import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
-    {path:'dashboard', component:Dashboard},
-    {path:'', redirectTo:'dashboard',pathMatch:"full"}
+    {path :'dashboard',
+  loadChildren:() =>
+    import('./dashboard/dashboard.routes').then(m => m.routes)
+ },
+ {path :'teacher',
+  loadChildren:() =>
+    import('./teacher/teacher.routes').then(m => m.routes)
+ },
+ {path :'student',
+  loadChildren:() =>
+    import('./student/student.routes').then(m => m.routes)
+ },
+{path:'', redirectTo:'/dashboard',pathMatch:"full"}
 ];

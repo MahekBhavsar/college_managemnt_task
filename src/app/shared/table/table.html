@@ -1,1 +1,29 @@
-<p>table works!</p>
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Gender</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (item of items; track $index) {
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.gender }}</td>
+        <td>
+         <button (click)="editItem($index)">Edit</button>
+<button (click)="deleteItem($index)">Delete</button>
+
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

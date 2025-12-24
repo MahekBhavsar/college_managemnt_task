@@ -1,1 +1,13 @@
-<p>student works!</p>
+
+ <button type="button" class="btn btn-primary" (click)="gotohome()">Go BACK</button>
+<app-form
+  [editData]="editStudent"
+  (added)="onStudentAdded($event)"
+  (updated)="onStudentUpdated($event)">
+</app-form>
+
+<app-table
+  [items]="students"
+  (edit)="onEditRequest($event)"
+  (delete)="onDelete($event)">
+</app-table>
