@@ -1,7 +1,15 @@
+<button type="button" class="btn btn-primary" (click)="gotohome()">Go BACK</button>
 
- <button type="button" class="btn btn-primary" (click)="gotohome()">Go BACK</button>
+<button type="button" class="btn btn-primary" 
+        (click)="openAddModal()" 
+        data-bs-toggle="modal" 
+        data-bs-target="#personModal">
+  ADD STUDENT
+</button>
+
 <app-form
   [editData]="editStudent"
+  (clear)="clear()"
   (added)="onStudentAdded($event)"
   (updated)="onStudentUpdated($event)">
 </app-form>

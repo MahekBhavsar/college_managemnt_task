@@ -51,5 +51,8 @@ export class Studentservice {
   getStudentCount(): number {
   return this.students.length;
 }
-
+getStudentByEmail(email:string)
+{
+  return this.students.find(students =>students.email === email)
+}
 }
