@@ -32,6 +32,7 @@ export class Teacherservice {
 
   addTeacher(teacher: any) {
     this.teachers.push(teacher);
+    console.log(teacher);
   }
 
   setEditTeacher(index: number) {
@@ -44,9 +45,17 @@ export class Teacherservice {
       this.teachers[this.editIndex] = updatedTeacher;
       this.editIndex = null;
     }
+    console.log(updatedTeacher);
   }
 
   deleteTeacher(index: number) {
     this.teachers.splice(index, 1);
   }
+  getTeacherCount(): number {
+    return this.teachers.length;
+  }
+  getTeacherByEmail(email: string) {
+    return this.teachers.find(teachers =>teachers.email === email)
+  }
+
 }

@@ -1,7 +1,21 @@
 <button type="button" class="btn btn-primary" (click)="gotohome()">Go BACK</button>
 
-<app-form [editData]="editTeacher" (added)="onTeacherAdded($event)" (updated)="onTeacherUpdated($event)">
+<button type="button" class="btn btn-primary" 
+    (click)="openAddModal()" 
+    data-bs-toggle="modal"
+    data-bs-target="#personModal">
+    ADD TEACHER
+</button>
+
+<app-form 
+    [editData]="editTeacher" 
+    (clear)="clear()" 
+    (added)="onTeacherAdded($event)"
+    (updated)="onTeacherUpdated($event)">
 </app-form>
 
-<app-table [items]="teachers" (edit)="onEditRequest($event)" (delete)="onDelete($event)">
+<app-table 
+    [items]="teachers" 
+    (edit)="onEditRequest($event)" 
+    (delete)="onDelete($event)">
 </app-table>

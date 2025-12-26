@@ -5,21 +5,23 @@ import { Teacherservice } from '../teacher/teacherservice/teacherservice';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet,RouterLink],
+  imports: [RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
   totalStudents: number | undefined;
   totalTeachers: number | undefined;
-   constructor(
+  constructor(
     private studentService: Studentservice,
     private teacherService: Teacherservice
-  ) {}
-  
-ngOnInit(): void {
+  ) { }
+
+  ngOnInit(): void {
     this.totalStudents = this.studentService.getStudentCount();
-    this.totalTeachers = this.teacherService.getTeachers().length; 
+
+    this.totalTeachers = this.teacherService.getTeacherCount();
+
     // OR you can create a getTeacherCount() method similar to Studentservice
   }
 }
