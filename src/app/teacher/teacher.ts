@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Teacherservice } from './teacherservice/teacherservice';
 import { Table } from '../shared/table/table';
 import { Form } from '../shared/form/form';
+import { Person } from '../Interface/interface';
 
 @Component({
   selector: 'app-teacher',
@@ -15,8 +16,8 @@ export class Teacher implements OnInit {
   protected readonly router = inject(Router);
   private teacherService = inject(Teacherservice);
   
-  teachers: any[] = [];
-  editTeacher: any = null;
+  teachers: Person[] = [];
+  editTeacher: Person | null = null;
 
   ngOnInit() {
     this.teachers = this.teacherService.getTeachers();
@@ -34,12 +35,12 @@ export class Teacher implements OnInit {
     this.editTeacher = { ...teacherToEdit };
   }
 
-  onTeacherAdded(teacher: any) {
+  onTeacherAdded(teacher: Person) {
     this.teacherService.addTeacher(teacher);
     this.editTeacher = null;
   }
 
-  onTeacherUpdated(teacher: any) {
+  onTeacherUpdated(teacher: Person ) {
     this.teacherService.updateTeacher(teacher);
     this.editTeacher = null;
   }

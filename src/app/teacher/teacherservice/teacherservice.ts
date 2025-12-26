@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Gender, Person } from '../../Interface/interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,20 +9,20 @@ export class Teacherservice {
   private editIndex: number | null = null;
 
 
-  private teachers: any[] = [
+  private teachers: Person[] = [
     {
       name: 'MAHEK',
       phone: 9081947464,
       email: 'mahek.bhavsar29@gmail.com',
       address: 'valsad',
-      gender: 'Female'
+      gender: Gender.Female
     },
     {
       name: 'HARSHIL',
       phone: 7284050706,
       email: 'harshil@gmail.com',
       address: 'valsad',
-      gender: 'Male'
+      gender: Gender.Male
     }
   ];
 
@@ -30,7 +31,7 @@ export class Teacherservice {
     return this.teachers;
   }
 
-  addTeacher(teacher: any) {
+  addTeacher(teacher: Person) {
     this.teachers.push(teacher);
     console.log(teacher);
   }
@@ -40,7 +41,7 @@ export class Teacherservice {
     return this.teachers[index];
   }
 
-  updateTeacher(updatedTeacher: any) {
+  updateTeacher(updatedTeacher: Person) {
     if (this.editIndex !== null) {
       this.teachers[this.editIndex] = updatedTeacher;
       this.editIndex = null;

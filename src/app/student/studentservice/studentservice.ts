@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Gender, Person } from '../../Interface/interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Studentservice {
 
-  private students: any[] = [
+  private students: Person[] = [
     {
       name: 'MAHEK',
       phone: 9081947464,
       email: 'mahek.bhavsar29@gmail.com',
       address: 'valsad',
-      gender: 'Female'
+      gender: Gender.Female
     },
     {
       name: 'HARSHIL',
       phone: 7284050706,
       email: 'harshil@gmail.com',
       address: 'valsad',
-      gender: 'Male'
+      gender: Gender.Male
     }
   ];
 
@@ -29,7 +30,7 @@ export class Studentservice {
     return this.students;
   }
 
-  onStudentAdded(student: any) {
+  onStudentAdded(student: Person) {
     this.students.push(student);
   }
 
@@ -38,7 +39,7 @@ export class Studentservice {
     return this.students[index];
   }
 
-  updateStudent(updatedStudent: any) {
+  updateStudent(updatedStudent: Person) {
     if (this.editIndex !== null) {
       this.students[this.editIndex] = updatedStudent;
       
